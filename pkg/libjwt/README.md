@@ -1,5 +1,6 @@
 <h1 style="text-align:center">libjwt</h1>
-> 这是一个python的`json web token`的精简实现, 可直接被用于认证
+
+> 这是一个python的 `json web token` 的精简实现, 可直接被用于认证
 
 + [使用说明](#Examples)
 
@@ -54,8 +55,8 @@ jwt的头部承载两部分信息：
 
 ```json
 {
-  'typ': 'JWT',
-  'alg': 'HS256'
+  "typ": "JWT",
+  "alg": "HS256"
 }
 ```
 
@@ -77,15 +78,11 @@ jwt的playload是自定义保存的内容
 
 
 ### 3.signature
-
-$$
+```
 token = SIGN(str, publicSecret)
-$$
 
-$$
 str = VERIFY(token, privateSecret)
-$$
-
+```
 
 
 - str = base64(header) + '.' +base64(payload)
