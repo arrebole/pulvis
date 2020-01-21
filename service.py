@@ -1,3 +1,6 @@
+#! /usr/env python3
+# -*- coding: UTF-8 -*-
+
 from flask import Flask
 from pkg.auth import setup as authSetup
 
