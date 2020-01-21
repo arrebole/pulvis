@@ -1,21 +1,18 @@
 import unittest
-
 import sys,os
-sys.path.append(os.path.abspath("./pkg"))
-from database import UserCtl
-
-class User:
-    def __init__(self, u, p):
-        self.userName = u
-        self.passWord = p
+sys.path.append(os.path.abspath("./"))
+from pkg.database import UserCtl
+from pkg.types import User
 
 class TestDatabase(unittest.TestCase):
 
     def test_UserCtl(self):
         db = UserCtl()
-        db.addUser(User("test","123"))
-        self.assertEqual(db.exist(User("test","123")), (True, True))
-
+        db.addUser(User({'userName': "test",'passWord': "123"}))
+        self.assertEqual(
+            db.exist(User({'userName': "test",'passWord': "123"})), 
+            (True, True)
+        )
 
 if __name__ == '__main__':
     unittest.main()

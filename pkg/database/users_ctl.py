@@ -1,9 +1,5 @@
 import sqlite3, os
-
-class User:
-    def __init__(self):
-        self.userName = ''
-        self.passWord = ''
+from pkg.types import User
 
 class UserCtl:
     def __init__(self):
