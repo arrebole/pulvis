@@ -1,4 +1,5 @@
 from flask import Flask
+from .jwt import JWT
 
 def setup(app: Flask):
     from .regist_ctl import regist
@@ -7,3 +8,5 @@ def setup(app: Flask):
     app.register_blueprint(login)
     app.register_blueprint(regist)
     return app
+
+all = ["setup", "JWT"]
