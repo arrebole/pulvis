@@ -8,6 +8,7 @@ class JWT:
     def __init__(self):
         self._private_key = readKey("./resources/secret/rsa_private_key.pem")
         self._public_key  = readKey("./resources/secret/rsa_public_key.pem")
+        self.InvalidSignatureError = jwt.exceptions.InvalidSignatureError
 
     def encode(self, payload: dict) -> bytes:
         return jwt.encode(payload, self._private_key, algorithm='RS256')

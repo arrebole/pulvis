@@ -6,11 +6,20 @@ from pkg.auth import JWT
 class TestJWT(unittest.TestCase):
 
     def test_JWT(self):
-        secret = JWT().encode({"name": "Bob"})
+        jwt = JWT()
+        secret = jwt.encode({"name": "Bob"})
+        
         self.assertEqual(
-            JWT().decode(secret).get("name",""), 
+            jwt.decode(secret).get("name",""), 
             "Bob"
         )
+        
+        try:
+            jwt.decode(secret+ b'a')
+        except jwt.InvalidSignatureError:
+            pass
+        else:
+            self.fail()
 
 if __name__ == '__main__':
     unittest.main()
