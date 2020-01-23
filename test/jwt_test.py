@@ -16,7 +16,7 @@ class TestJWT(unittest.TestCase):
         
         try:
             jwt.decode(secret+ b'a')
-        except jwt.InvalidSignatureError:
+        except BaseException:
             pass
         else:
             self.fail()
